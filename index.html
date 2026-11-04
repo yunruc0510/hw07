@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- 宣告使用 HTML5；DOCTYPE 是文件類型宣告，不需要結束標籤。 -->
+<html lang="zh-Hant">
+<!-- html 包住整份文件；lang="zh-Hant" 表示主要使用繁體中文。 -->
+<head>
+    <!-- head 放網頁資訊；這些資訊不會直接成為頁面中的報導文字。 -->
+    <meta charset="UTF-8">
+    <!-- UTF-8 可正確處理中文；meta 是空元素，不寫結束標籤。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 讓行動裝置使用裝置寬度；確保窄視窗能正確響應。 -->
+    <meta name="description" content="走進帝國製糖廠臺中營業所與星泉湖，認識產業文化資產、歷史建築與生態水景，透過景點清單、有框表格、照片、影片與 Google 地圖閱讀台中東區的糖業故事。">
+    <!-- description 提供網頁摘要；author 標示作者。 -->
+    <meta name="author" content="陳韻茹">
+    <!-- robots 表達索引意圖；本機檔案不會因此自動被搜尋引擎收錄。 -->
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph 提供分享摘要，適合社群卡片呈現。 -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="歷史建築帝國製糖廠臺中營業所｜走讀東區產業記憶與星泉湖生態">
+    <meta property="og:description" content="走讀帝國製糖廠臺中營業所，探索百年製糖歷史、星泉湖湖畔景觀，搭配景點比較表、歷史照片、影音報導及位置地圖。">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%E5%B8%9D%E5%9C%8B%E8%A3%BD%E7%B3%96%E8%87%BA%E4%B8%AD%E7%87%9F%E6%A5%AD%E6%89%80.jpg/1280px-%E5%B8%9D%E5%9C%8B%E8%A3%BD%E7%B3%96%E8%87%BA%E4%B8%AD%E7%87%9F%E6%A5%AD%E6%89%80.jpg">
+    <meta property="og:image:alt" content="帝國製糖廠臺中營業所歷史建築正面全景">
+    <meta property="article:published_time" content="2026-11-04">
+    <meta property="article:modified_time" content="2026-11-04">
+    <title>帝國製糖廠臺中營業所報導｜HW07 外部 CSS 與相對路徑練習</title>
+
+    <!--
+        HW07 方法三：以 link 元素載入外部 CSS，不在本頁保留 style 元素或行內 style。
+        rel="stylesheet" 表示此連結是樣式表；href 指定 CSS 檔案位置。
+        相對路徑 css/hw07.css：從本 HTML 所在資料夾出發，進入 css 子資料夾，再讀取 hw07.css。
+        若將 HTML 與 css 資料夾一起移動，且層級不變，這條路徑仍然有效。
+    -->
+    <link rel="stylesheet" href="hw07.css">
+</head>
+<body>
+    <!--
+        第七次作業：一頁式帝國製糖廠臺中營業所景點報導。
+        本頁延續 HW06 語意標籤與版面結構，將所有樣式移入 css/hw07.css。
+        不使用行內 style 屬性、不使用 @import、CSS 框架或自寫 JavaScript。
+    -->
+
+    <!-- header 是頁首；id="top" 是下方「回到頁首」連結的目的地。 -->
+    <header id="top">
+        <h1>帝國製糖廠臺中營業所：工業遺產與湖畔新生</h1>
+        <p><small>產業文資 · 歷史建築 · 湧泉公園 · 青年微旅行</small></p>
+        <p><strong>從甘蔗清香到文創展演，見證台中東區百年的繁華與蛻變。</strong></p>
+        <!-- 遷移 1/3：以 reading-focus 類別對應外部 CSS，保留焦點背景與文字配色 -->
+        <p>本期焦點：<mark class="reading-focus">昭和時期產業建築與星泉湖生態活化</mark>，串連文資空間與城市水綠環境。</p>
+        <p>作者：陳韻茹｜學號：D1446686｜報導整理日期：<time datetime="2026-11-04">2026 年 11 月 4 日</time></p>
+        <!-- 遷移 3/3：report-disclaimer 類別在外部 CSS 保留此處聲明為斜體，其他 small 不變 -->
+        <p><small class="report-disclaimer">本文為課堂資料整理型走讀報導，展示外部 CSS 與相對路徑串接成果。</small></p>
+    </header>
+
+    <!-- nav 表示導覽區；href="#名稱" 配合頁內唯一 id 實作平滑目錄跳轉 -->
+    <nav aria-label="報導目錄">
+        <h2>報導目錄</h2>
+        <ul>
+            <li><a href="#intro">景點簡介</a></li>
+            <li><a href="#highlights">空間特色與散步順序</a></li>
+            <li><a href="#table">園區空間比較表</a></li>
+            <li><a href="#photo">歷史建築外觀照片</a></li>
+            <li><a href="#video">影音走讀報導</a></li>
+            <li><a href="#map">位置地圖</a></li>
+            <li><a href="#tips">走讀小提醒</a></li>
+            <li><a href="#sources">資料來源</a></li>
+        </ul>
+    </nav>
+
+    <!-- hr 表示內容主題分隔 -->
+    <hr>
+
+    <!-- main 包住本頁主要內容，不可放入 header、nav 或 footer 內 -->
+    <main id="main-content">
+        <!-- article 收納可獨立理解的完整報導 -->
+        <article aria-label="帝國製糖廠專題報導">
+            
+            <section id="intro">
+                <h2>一、景點簡介</h2>
+                <p>
+                    <strong>帝國製糖廠臺中營業所</strong>座落於台中市東區，其前身為日本帝國製糖株式會社於 1912 年設立的「台中製糖所」。日治時期糖業蓬勃發展，帶動台中後火車站周邊產業聚落，現存的營業所本體則落成於 <strong>1935 年（昭和 10 年）</strong>。
+                </p>
+                <p>
+                    戰後此處由台灣糖業公司接收，改稱「台中糖廠」。隨著時代變遷、製糖工廠停產拆除，這座充滿裝飾藝術（Art Deco）風格的辦公本體建築被完整保留下來，並於 2007 年獲登錄為<strong>台中市歷史建築</strong>。
+                </p>
+                <p>
+                    歷經修復工程，如今園區結合周邊開挖地下水自然湧出形成的<strong>「星泉湖」</strong>（湧泉公園），蛻變為兼具文創展覽、餐飲體驗、產業歷史回顧與水岸休閒的城市文化綠地。
+                </p>
+                <p>地址：台中市東區樂業路 30 號（湧泉公園旁）。<br>走讀重點：裝飾藝術建築立面、水岸星泉湖、甘蔗田意象步道。</p>
+            </section>
+
+            <hr>
+
+            <section id="highlights">
+                <h2>二、空間特色與散步順序</h2>
+                <h3>值得留意的三個亮點</h3>
+                <ul>
+                    <li><strong>歷史建築細節：</strong>營業所立面線條流暢，帶有幾何裝飾及厚實雨遮，內部則保留古典挑高木構造與現代耐震鋼構並存的修復工法。</li>
+                    <li><strong>星泉湖湖畔景緻：</strong>原大型商業開發計畫停工後自然湧出的地下水泉，重塑成具滯洪與生態調節功能的都市綠洲。</li>
+                    <li><strong>甘蔗與產業地景：</strong>步道兩側種植紅甘蔗與水生植物，呼應昔日五分車滿載甘蔗入廠壓榨製糖的產業歷史記憶。</li>
+                </ul>
+
+                <h3>建議散步順序</h3>
+                <!-- 遷移 2/3：route-note 類別在外部 CSS 保留此段專屬左框線與內距，其他 p 不變 -->
+                <p class="route-note">以下為本報導建議之微旅行散步順序，請依個人步調與園區開放時間參訪。</p>
+                <ol>
+                    <li>自台中車站東站出發，步行約 10 分鐘抵達園區入口，先至迎賓廣場閱讀歷史地圖導覽牌。</li>
+                    <li>走入歷史建築內部，欣賞昔日營業所辦公廳空間、建築構件展示以及當期藝文展覽。</li>
+                    <li>步出營業所戶外觀景平台，俯瞰星泉湖水天一色的波光倒影與水鳥生態。</li>
+                    <li>沿著環湖木棧道漫步，經過甘蔗地景步道，享受綠意並近距離感受老工廠的遺址氛圍。</li>
+                </ol>
+            </section>
+
+            <hr>
+
+            <section id="table">
+                <h2>三、園區空間比較表</h2>
+                <!--
+                    table 呈現比較資料，使用 caption、thead、tbody、scope 等語意結構。
+                    樣式由 css/hw07.css 中的 table 相關規則統一設定。
+                -->
+                <table>
+                    <caption>帝國製糖廠臺中營業所園區三處主要核心空間比較</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">空間分區</th>
+                            <th scope="col">空間屬性與特色</th>
+                            <th scope="col">建議觀察重點</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">歷史建築本體</th>
+                            <td>建於 1935 年的裝飾藝術風格洋風辦公室</td>
+                            <td>外牆水平飾帶、主入口門廊造型及內部修復榫接屋架</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">星泉湖水域</th>
+                            <td>由地下湧泉形成的自然水岸生態園區</td>
+                            <td>湖畔倒影、人工浮島植生群與水鳥棲息生態</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">甘蔗意象步道</th>
+                            <td>結合產業農作記憶的環湖散步道</td>
+                            <td>糖業作物植物生態、五分車歷史路徑解說牌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <section id="photo">
+                <h2>四、歷史建築外觀照片</h2>
+                <figure>
+                    <!--
+                        更換為維基共享資源的高畫質公開圖片，支援直接外連與防跑版縮放。
+                    -->
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%E5%B8%9D%E5%9C%8B%E8%A3%BD%E7%B3%96%E8%87%BA%E4%B8%AD%E7%87%9F%E6%A5%AD%E6%89%80.jpg/1280px-%E5%B8%9D%E5%9C%8B%E8%A3%BD%E7%B3%96%E8%87%BA%E4%B8%AD%E7%87%9F%E6%A5%AD%E6%89%80.jpg"
+                        alt="帝國製糖廠臺中營業所歷史建築立面與戶外景觀"
+                        width="520">
+                    <figcaption>
+                        修復完成後的帝國製糖廠臺中營業所本體正面外觀。圖片來源：<a href="https://commons.wikimedia.org/wiki/File:%E5%B8%9D%E5%9C%8B%E8%A3%BD%E7%B3%96%E8%87%BA%E4%B8%AD%E7%87%9F%E6%A5%AD%E6%89%80.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons（維基共享資源）</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <hr>
+
+            <section id="video">
+                <h2>五、影音報導</h2>
+                <p>觀看下方專題影音報導，深入了解帝國製糖廠的歷史演變與星泉湖的生態重塑：</p>
+                <figure>
+                    <iframe
+                        class="video-frame"
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/cffR0R0YJ6c"
+                        title="帝國製糖廠臺中營業所與星泉湖介紹影片"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <figcaption>影片：帝國製糖廠臺中營業所與星泉湖走讀｜發布單位：台中市政府官方頻道。</figcaption>
+                </figure>
+                <p><a href="https://www.youtube.com/watch?v=cffR0R0YJ6c" target="_blank" rel="noopener noreferrer">在 YouTube 觀看帝國製糖廠介紹影片（另開分頁）</a></p>
+                <p><small>本機測試時請以 VS Code Live Server 或 HTTP Localhost 伺服器啟動，避免因 file:// 協議引起 YouTube 錯誤 153。</small></p>
+            </section>
+
+            <hr>
+
+            <section id="map">
+                <h2>六、位置地圖：前往帝國製糖廠</h2>
+                <p>帝國製糖廠臺中營業所位於台中市東區，地址為<strong>樂業路 30 號</strong>，鄰近台中火車站後站與 Lalaport 購物中心。</p>
+                <iframe
+                    class="map-frame"
+                    src="https://maps.google.com/maps?q=24.137345,120.690861&amp;z=16&amp;output=embed"
+                    width="480"
+                    height="360"
+                    title="帝國製糖廠臺中營業所 Google 地圖"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+                <p><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B8%9D%E5%9C%8B%E8%A3%BD%E7%B3%96%E5%BB%A0%E8%87%BA%E4%B8%AD%E7%87%9F%E6%A5%AD%E6%89%80" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟帝國製糖廠臺中營業所（另開分頁）</a></p>
+                <p><small>地圖資訊由 Google Maps 提供；步行可由台中後火車站大智北路方向直行前往。</small></p>
+            </section>
+
+            <hr>
+
+            <!-- aside 放走讀準備等補充資訊 -->
+            <aside id="tips" aria-labelledby="tips-title">
+                <h2 id="tips-title">走讀小提醒</h2>
+                <details open>
+                    <summary>參訪與走讀行前叮嚀</summary>
+                    <ul>
+                        <li>室內館舍每週一休館，參觀展覽與文創商店前請先留意最新營運時間公告。</li>
+                        <li>星泉湖畔木棧道遮陰較少，日間散步建議攜帶飲用水並做好防曬措施。</li>
+                        <li>建築本體屬法定歷史建築，入內請勿觸摸歷史構件並遵守參觀禮儀。</li>
+                    </ul>
+                </details>
+            </aside>
+
+            <hr>
+
+            <section id="sources">
+                <h2>七、資料來源</h2>
+                <p>本報導依據台中市政府公部門資料及歷史文獻彙整，路線規劃與現場觀察由作者自主整理。</p>
+                <ul>
+                    <li><a href="https://travel.taichung.gov.tw/zh-tw/attractions/detail/11881" target="_blank" rel="noopener noreferrer">臺中觀光旅遊網：帝國製糖廠臺中營業所</a></li>
+                    <li><a href="https://www.tchac.taichung.gov.tw/building?pid=21&amp;uid=33" target="_blank" rel="noopener noreferrer">臺中市文化資產處：歷史建築 帝國製糖廠臺中營業所</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=cffR0R0YJ6c" target="_blank" rel="noopener noreferrer">YouTube：帝國製糖廠臺中營業所走讀影片</a></li>
+                <p><small>資料整理日期：2026 年 11 月 4 日。</small></p>
+            </section>
+
+        </article>
+    </main>
+
+    <hr>
+
+    <!-- footer 頁尾區域 -->
+    <footer>
+        <p><strong>第七次 HTML 與 CSS 作業｜帝國製糖廠臺中營業所報導</strong></p>
+        <p><small>作者：陳韻茹 · 學號：D1446686 · 更新日期：2026 年 11 月 4 日</small></p>
+        <p><small>CSS 教學參考：<a href="https://steam.oxxostudio.tw/category/css/info/how-to-use.html" target="_blank" rel="noopener noreferrer">STEAM：開始使用 CSS（方法三：link 標記）</a>。</small></p>
+        <p><small>文字內容依公開歷史資料整理；圖片與影片版權歸原權利人所有。本頁僅供學習練習使用。</small></p>
+        <p><a href="#top">回到頁首</a></p>
+    </footer>
+</body>
+</html>
